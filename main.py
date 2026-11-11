@@ -44,7 +44,9 @@ def get_meta(soup, *names):
     return None
  
  
-@app.get("/")
+@app.get("/secret check")
+def secret_check():
+ return {'secret_loaded': bool(PROXY_SECRET)}
 def home():
     return {"message": "Link Preview API. Try /preview?url=https://example.com"}
  
