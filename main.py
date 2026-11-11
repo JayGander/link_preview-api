@@ -44,11 +44,14 @@ def get_meta(soup, *names):
     return None
  
  
-@app.get("/secret check")
-def secret_check():
- return {'secret_loaded': bool(PROXY_SECRET)}
+@app.get("/")
 def home():
     return {"message": "Link Preview API. Try /preview?url=https://example.com"}
+
+
+@app.get("/secret-check")
+def secret_check():
+    return {"secret_loaded": bool(PROXY_SECRET)}
  
  
 @app.get("/preview")
